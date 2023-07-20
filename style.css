@@ -1,0 +1,201 @@
+.keyboard {
+  position: fixed;
+  /* keyboard will display on screen eventhough the web page is scrolled up and down till the end.  */
+  left: 300px;
+  bottom: 10px;
+  width: 70%;
+  padding: 5px 5px;
+  /* padding is creating empty space around object.
+       5px for top & bottom
+       5px for left & right */
+  border-radius: 30px;
+  background: #91607a;
+  /* keyboard color */
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  /* shadow around the keyboard */
+  user-select: none;
+  transition: bottom 0.4s;
+  /* the keyboard will appear within 0.4 sec */
+}
+
+.keyboard--hidden {
+  bottom: -100%;
+  /* will hidden the keyboard */
+}
+
+.keyboard__keys {
+  text-align: center;
+  /* all the keys will aligned at center. */
+}
+
+.keyboard__key {
+  height: 45px;
+  width: 6%;
+  /* % will allow it to be responsive as user decrease the width of the page while viewing on mobile devices. */
+  max-width: 90px;
+  /* 90px is the max limit for the width because we don't want keyboard keys to be very very wide when the user is using very large devices. */
+  margin: 3px;
+  /* 3px space around(top,bottom,left,right) each key */
+  border-radius: 4px;
+  /* for less radius value(4px) key shape is rectangle.
+       for large radius value(50px) key shape is egg.
+       like.... edges of key which are sharp in shape  for less radius will become curve for more radius  */
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1.05rem;
+  /* 1rem = 16px */
+  /* rem units are RESPONSIVE to browser settings. */
+
+  /* if the font size is varied in browser settings,font size in the resultant css browser will change accordingly . */
+
+  /* FONT STYLE OF CHILD IS NOT DEPENDENT ON PARENT,BUT INSTEAD IT DEPEND ON ROOT ELEMENT THAT IS BROWSER SETTINGS.*/
+  outline: none;
+  /* this will remove outline you get on mobile devices when touching the keyboard or the keys. */
+  cursor: pointer;
+  /* initially the cursor is in arrow shape,as soon as the cursor is palced on the keys the cursor will change to pointer(hand) and con=mes to arrow when cursor moves out of keyboard.  */
+  display: inline-flex;
+  /* to disply the keys in an order like recangle flex is used. it creates a container like structure in which keys are placed.
+
+  if only display: flex is used, then by default the keys will display in block flex that is one key will display in one line and continues till bottom.
+
+  if display : inline-flex is used ,then keys will store inside container side by side inline.*/
+
+  align-items: center;
+  justify-content: center;
+  /* justify-content:
+it will move items along MAIN AXIS inside the container after filling.
+
+align-items:  
+it will move items along CROSS AXIS inside the container after filling.
+
+all these three will help to place the icon at center of the key. */
+  vertical-align: top;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  /* when you tap on a button by default on mobile devices it's going to have a blue sort of opaque background color and that will remove that.*/
+  position: relative;
+  /* in capslock key the little circle for light is going to be a pseudo element and that's going to be positioned absolutely, so we need a position of relative on the key for that to work properly. 
+  
+  if 78th line is removed,then little circle will be removed on the capslock key. */
+}
+
+.keyboard__key:active {
+  background: rgba(255, 255, 255, 0.12);
+  /* this background color will apply while a key is pressed. */
+}
+
+.keyboard__key--wide {
+  width: 12%;
+}
+
+.keyboard__key--extra-wide {
+  width: 36%;
+  max-width: 500px;
+}
+
+.keyboard__key--activatable::after {
+  /* after pseudo class is basically a virtual element generated in CSS which is gonna positioned in the top right corner. */
+  content: "";
+  top: 10px;
+  right: 10px;
+  /* 10px distance from top and 10px distance from right -> these 2 lines will place the pseudo class on top right corner. */
+  position: absolute;
+  /* combination of line 103 & 77 will place a circle on the key and make the pseudo class(circle) work on the top right corner. */
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  /* this will create a circle on top right corner */
+} 
+
+.keyboard__key--active::after {
+  background: #08ff00;
+}
+
+.keyboard__key--dark {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap");
+
+* {
+  font-family: "poppins", sans-serif;
+}
+
+body {
+  background-image: url("./p1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+.container {
+  width: 400px;
+  height: 490px;
+  background-image: url(./p2.jpg);
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+}
+span {
+  color: #120f0f;
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 10px 0;
+}
+header {
+  color: #120303;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 10px 0;
+}
+.input-field .input {
+  height: 45px;
+  width: 87%;
+  border: none;
+  border-radius: 30px;
+  color: #090808;
+  font-size: 15px;
+  padding: 0 0 0 45px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+span i {
+  position: relative;
+  top: -33px;
+  left: 17px;
+  color: #0c0a0a;
+}
+::-webkit-input-placeholder {
+  color: #080707;
+}
+.submit {
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  height: 45px;
+  outline: none;
+  width: 100%;
+  color: black;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.submit:hover {
+  box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+}
